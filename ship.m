@@ -18,8 +18,8 @@ classdef ship
 
     properties (Access = public)
         ID;
-        maxLoad;
         category;
+        maxWeight;
         capacity;
         destination;
         loadedContainers;
@@ -33,6 +33,8 @@ classdef ship
         function obj = ship(inputInformation)
             %Construct an instance of this class
             %Decipher properties from passed callTag (predetermined order)
+            obj.loadedContainers = {};
+            
             for assignIdx = 1:numel(inputInformation)
                 if assignIdx == 1
                     obj.callTag = inputInformation{assignIdx};
@@ -62,7 +64,7 @@ classdef ship
                 elseif attribIdx == 2
                     obj.category = upper(attributes{attribIdx});
                 elseif attribIdx == 3
-                    obj.maxLoad = str2double(attributes{attribIdx});
+                    obj.maxWeight = str2double(attributes{attribIdx});
                 elseif attribIdx == 4
                     obj.capacity = str2double(attributes{attribIdx});
                 elseif attribIdx == 5
@@ -80,8 +82,8 @@ classdef ship
                 obj.category = 'MISSING';
                 warndlg('CATEGORY ERROR: CTE01',[obj.ID, ' Warning']);
             end
-            if strcmp(obj.maxLoad,'') || isnan(obj.maxLoad)
-                obj.maxLoad = 'MISSING';
+            if strcmp(obj.maxWeight,'') || isnan(obj.maxWeight)
+                obj.maxWeight = 'MISSING';
                 warndlg('LOAD ERROR: LE01',[obj.ID, ' Warning']);
             end
             if strcmp(obj.capacity,'') || isnan(obj.capacity)

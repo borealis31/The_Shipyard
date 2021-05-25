@@ -24,6 +24,7 @@ classdef container
     end
     
     methods
+        %Initializing function
         function obj = container(inputInformation)
             for assignIdx = 1:numel(inputInformation)
                 if assignIdx == 1
@@ -36,7 +37,10 @@ classdef container
             obj = contAttribSet(obj,obj.storeTag);
         end
         
+        %Attribute-setting function called by initializer
         function obj = contAttribSet(obj,inputStoreTag)
+            obj.onShip = NaN;
+            
             attributes = strsplit(inputStoreTag,'-');
             
             if numel(attributes) < 4
@@ -59,6 +63,7 @@ classdef container
                     obj.destination = attributes{attribIdx};
                 else
                     warndlg('INVALID STORETAG',[obj.ID, ' Warning']);
+                    
                     break;
                 end
             end
@@ -78,6 +83,20 @@ classdef container
                 obj.capacity = 'MISSING';
                 warndlg('DESTINATION ERROR: DE02',[obj.ID, ' Warning']);
             end
+        end
+        
+        %Load the container onto a given ship
+        function obj = loadOnto(obj, sID)
+            if isa(sID,'char')
+                obj.onShip = sID;
+            else
+                warndlg('CONTAINER SHIP ERROR: CSE02',[obj.ID, ' Warning']);
+            end
+        end
+        
+        %Check if loaded onto a ship
+        function b = isLoaded(obj)
+            b = ~isnan(obj.onShip);
         end
     end
 end
