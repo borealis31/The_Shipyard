@@ -1,6 +1,6 @@
 classdef manifest
     %   This is the file that contains the declaration of the "maifest"
-    %   
+    %
     %   This declaration parses a file name in order to create and sort
     %   a list for of ship and container call tags
     
@@ -31,7 +31,7 @@ classdef manifest
                     elseif tempVar(1) == 'S'
                         obj.shipTagList(end+1) = {tempVar};
                     else
-                        warndlg('MANIFEST INPUT ERROR: IE03','Manifest Warning');
+                        warndlg(['MANIFEST ERROR: mE01' newline 'Invalid call-tag ID'],'mE01');
                     end
                 end
             end

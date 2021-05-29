@@ -30,7 +30,7 @@ classdef container
                 if assignIdx == 1
                     obj.storeTag = inputInformation{assignIdx};
                 else
-                    warndlg('INPUT ERROR: INE02',[obj.ID, ' Warning']);
+                    warndlg(['CONTAINER ERROR: cE01' newline 'Invalid constructor input'],'cE01');
                     break;
                 end
             end
@@ -44,7 +44,7 @@ classdef container
             attributes = strsplit(inputStoreTag,'-');
             
             if numel(attributes) < 4
-                warndlg('ATTRIBUTE ERROR: AE02',[obj.ID, ' Warning'])
+                warndlg(['CONTAINER ERROR: cE02' newline 'Invalid number of elements in call-tag (LOW)'],'cE02');
                 counter = 1;
                 while numel(attributes) < 4 && counter < 10
                      attributes{end+1} = '';
@@ -62,26 +62,26 @@ classdef container
                 elseif attribIdx == 4
                     obj.destination = attributes{attribIdx};
                 else
-                    warndlg('INVALID STORETAG',[obj.ID, ' Warning']);
+                    warndlg(['CONTAINER ERROR: cE03' newline 'Invalid number of elements in call-tag (HIGH)'],'cE03');
                     
                     break;
                 end
             end
 
             if strcmp(obj.ID,'') || nnz(isnan(obj.ID)) ~= 0
-                warndlg('ID ERROR: IDE02',[obj.ID, ' Warning'])
+                warndlg(['CONTAINER ERROR: cE04' newline 'Missing call-tag ID'],'cE04');
             end
             if strcmp(obj.category, '') || isnan(obj.category)
                 obj.category = 'MISSING';
-                warndlg('CATEGORY ERROR: CTE02',[obj.ID, ' Warning']);
+                warndlg(['CONTAINER ERROR: cE05' newline 'Missing call-tag category'],'cE05');
             end
             if strcmp(obj.weight,'') || isnan(obj.weight)
-                obj.maxLoad = 'MISSING';
-                warndlg('WEIGHT ERROR: WE02',[obj.ID, ' Warning']);
+                obj.weight = 'MISSING';
+                warndlg(['CONTAINER ERROR: cE06' newline 'Missing call-tag weight'],'cE06');
             end
             if strcmp(obj.destination,'') || nnz(isnan(obj.destination)) ~= 0
                 obj.capacity = 'MISSING';
-                warndlg('DESTINATION ERROR: DE02',[obj.ID, ' Warning']);
+                warndlg(['CONTAINER ERROR: cE07' newline 'Missing call-tag destination'],'cE07');
             end
         end
         
@@ -90,7 +90,7 @@ classdef container
             if isa(sID,'char')
                 obj.onShip = sID;
             else
-                warndlg('CONTAINER SHIP ERROR: CSE02',[obj.ID, ' Warning']);
+                warndlg(['CONTAINER ERROR: cE08' newline 'Invalid ship ID datatype'],'cE08');
             end
         end
         

@@ -33,13 +33,13 @@ classdef ship
         function obj = ship(inputInformation)
             %Construct an instance of this class
             %Decipher properties from passed callTag (predetermined order)
-            obj.loadedContainers = {};
+            obj.loadedContainers = container.empty([0,0]);
             
             for assignIdx = 1:numel(inputInformation)
                 if assignIdx == 1
                     obj.callTag = inputInformation{assignIdx};
                 else
-                    warndlg('INPUT ERROR: INE01',[obj.ID, ' Warning']);
+                    warndlg(['SHIP ERROR: sE01' newline 'Invalid constructor input'],'sE01');
                     break;
                 end
             end
@@ -50,7 +50,7 @@ classdef ship
             attributes = strsplit(inputCallTag,'-');
             
             if numel(attributes) < 5
-                warndlg('ATTRIBUTE ERROR: AE01',[obj.ID, ' Warning'])
+                warndlg(['SHIP ERROR: sE02' newline 'Invalid number of elements in call-tag (LOW)'],'sE02');
                 counter = 1;
                 while numel(attributes) < 5 && counter < 10
                      attributes{end+1} = '';
@@ -70,29 +70,29 @@ classdef ship
                 elseif attribIdx == 5
                     obj.destination = upper(attributes{attribIdx});
                 else
-                    warndlg('INVALID CALLTAG',[obj.ID, ' Warning']);
+                    warndlg(['SHIP ERROR: sE03' newline 'Invalid number of elements in call-tag (HIGH)'],'sE03');
                 end
             end
             
             if strcmp(obj.ID,'') || nnz(isnan(obj.ID)) ~= 0
                 obj.ID = 'MISSING';
-                warndlg('ID ERROR: IDE01',[obj.ID, ' Warning']);
+                warndlg(['SHIP ERROR: sE04' newline 'Missing call-tag ID'],'sE04');
             end
             if strcmp(obj.category,'') || isnan(obj.category)
                 obj.category = 'MISSING';
-                warndlg('CATEGORY ERROR: CTE01',[obj.ID, ' Warning']);
+                warndlg(['SHIP ERROR: sE05' newline 'Missing call-tag category'],'sE05');
             end
             if strcmp(obj.maxWeight,'') || isnan(obj.maxWeight)
                 obj.maxWeight = 'MISSING';
-                warndlg('LOAD ERROR: LE01',[obj.ID, ' Warning']);
+                warndlg(['SHIP ERROR: sE06' newline 'Missing call-tag maxWeight'],'sE06');
             end
             if strcmp(obj.capacity,'') || isnan(obj.capacity)
                 obj.capacity = 'MISSING';
-                warndlg('CAPACITY ERROR: CE01',[obj.ID, ' Warning']);
+                warndlg(['SHIP ERROR: sE07' newline 'Missing call-tag capacity'],'sE07');
             end
             if strcmp(obj.destination,'') || nnz(isnan(obj.destination)) ~= 0
                 obj.destination = 'MISSING';
-                warndlg('DESTINATION ERROR: DE01',[obj.ID, ' Warning']);
+                warndlg(['SHIP ERROR: sE08' newline 'Missing call-tag destination'],'sE08');
             end
         end
         
