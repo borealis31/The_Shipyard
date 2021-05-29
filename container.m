@@ -17,6 +17,7 @@ classdef container
         weight;
         destination;
         onShip;
+        isLoaded;
     end
     
     properties (Access = private)
@@ -40,6 +41,7 @@ classdef container
         %Attribute-setting function called by initializer
         function obj = contAttribSet(obj,inputStoreTag)
             obj.onShip = NaN;
+            obj.isLoaded = false;
             
             attributes = strsplit(inputStoreTag,'-');
             
@@ -83,20 +85,6 @@ classdef container
                 obj.capacity = 'MISSING';
                 warndlg(['CONTAINER ERROR: cE07' newline 'Missing call-tag destination'],'cE07');
             end
-        end
-        
-        %Load the container onto a given ship
-        function obj = loadOnto(obj, sID)
-            if isa(sID,'char')
-                obj.onShip = sID;
-            else
-                warndlg(['CONTAINER ERROR: cE08' newline 'Invalid ship ID datatype'],'cE08');
-            end
-        end
-        
-        %Check if loaded onto a ship
-        function b = isLoaded(obj)
-            b = ~isnan(obj.onShip);
         end
     end
 end

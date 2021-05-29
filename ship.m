@@ -33,7 +33,7 @@ classdef ship
         function obj = ship(inputInformation)
             %Construct an instance of this class
             %Decipher properties from passed callTag (predetermined order)
-            obj.loadedContainers = container.empty([0,0]);
+            obj.loadedContainers = {};
             
             for assignIdx = 1:numel(inputInformation)
                 if assignIdx == 1
