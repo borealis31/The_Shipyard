@@ -3,7 +3,7 @@
 ## Summary
 The_Shipyard is a foray into object-oriented programming that explores things such as file in/out, classes, and recursive functions. It was prototyped and tested in MATLAB Scripting Language, and I have plans to rewrite it in C++. The MATLAB code has complete documentation and error detection for invalid inputs that may or may not be impactful to the code. If you have any questions on how it works, feel free to email me at jakeb.chouinard@gmail.com.
 
-In a more conceptual sense, this code is designed to take in a .txt file containing a mixture of ship and container "call-tags". It then sorts these call-tags through the creation of a manifest. The manifest is then interpreted to create ship and container objects depending on the attributes of the parsed call-tags. This outputs a list of ships as well as a list of containers. Using these lists, they are then parsed through a loading function. This loading function uses the properties of each ship to match them with containers that are compatible. The containers are prioritized by weight using a recursive merge sort function. Ships accrue containers, and the ship on which a container is will be recorded in the container's properties. The list of containers is then sorted by container ID. Container IDs are then output in a cell array that is horizontally concatenated with a cell array containing the IDs of the ships they are loaded onto.
+In a more conceptual sense, this code is designed to take in a .txt file containing a mixture of ship and container "call-tags". It then sorts these call-tags through the creation of a manifest. The manifest is then interpreted to create ship and container objects depending on the attributes of the parsed call-tags. This outputs a list of ships as well as a list of containers. Using these lists, they are then parsed through a loading function. This loading function uses the properties of each ship to match them with containers that are compatible. The containers are prioritized by weight using a recursive merge sort function. Ships accrue containers, and the ship on which a container is will be recorded in the container's properties. The list of containers is then sorted by container ID. Container IDs are then output in a cell array that is horizontally concatenated with a cell array containing the IDs of the ships they are loaded onto ([See example output](https://github.com/borealis31/The_Shipyard/blob/main/matlab/exampleOutput.PNG)).
 
 ## Contents
 ### MATLAB Scripts
@@ -30,11 +30,11 @@ There exist 3 different classes created for this project. The descriptions can b
     - This is the file that contains the declaration of the "maifest". This declaration parses a file name in order to create and sort a list of ship and container call tags
 
 #### Functions
-
   - interpretManifest
-
+    - Uses the initialized manifest from the live script to create a list of ships and a list of containers
   - contMergeSort
-
+    - Recursive merge sort function that will sort a list of containers by weight or ID
   - shipLoading
-
+    - This function uses the input ship and container lists to load the ships based on established properties of the objects
   - set/getGlobalVariables
+    - This set of functions is not actually used in the example output. It was initially designed to avoid needing to output the ship and container lists repeatedly, but it was decided against being used 
