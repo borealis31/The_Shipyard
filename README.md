@@ -2,6 +2,9 @@
 
 ## Summary
 The_Shipyard is a foray into object-oriented programming that explores things such as file in/out, classes, and recursive functions. It was prototyped and tested in MATLAB Scripting Language, and I have plans to rewrite it in C++. The MATLAB code has complete documentation and error detection for invalid inputs that may or may not be impactful to the code. If you have any questions on how it works, feel free to email me at jakeb.chouinard@gmail.com.
+
+In a more conceptual sense, this code is designed to take in a .txt file containing a mixture of ship and container "call-tags". It then sorts these call-tags through the creation of a manifest. The manifest is then interpreted to create ship and container objects depending on the attributes of the parsed call-tags. This outputs a list of ships as well as a list of containers. Using these lists, they are then parsed through a loading function. This loading function uses the properties of each ship to match them with containers that are compatible. The containers are prioritized by weight using a recursive merge sort function. Ships accrue containers, and the ship on which a container is will be recorded in the container's properties. The list of containers is then sorted by container ID. Container IDs are then output in a cell array that is horizontally concatenated with a cell array containing the IDs of the ships they are loaded onto.
+
 ## Contents
 ### MATLAB Scripts
 #### Classes
@@ -14,9 +17,17 @@ There exist 3 different classes created for this project. The descriptions can b
       - Maximum Load: The most (in weight), each container can be
       - Capacity: The highest number of containers a ship can carry
       - Destination: The 2-character code that indicates where the ship is heading
+      - Loaded Containers: This is a cell array of char-type arrays that eventually contains the ID of every container loaded onto the ship
   - Container
-
+    - This is the file containing the properties and functions involved with the creation of a "container". There are several properties involved with this:
+      - Store Tag: Container equivalent to the ship's call-tag. Defines the properties of the container (category, weight, and destination)
+      - ID: Identifiable ID of the container involved
+      - Catgeory: Type of contents/container involved
+      - Weight: Weight of the container
+      - Destination: Where the container is heading
+      - On Ship: This is a char array that contains the ID of the ship is eventually loaded onto
   - Manifest
+    - This is the file that contains the declaration of the "maifest". This declaration parses a file name in order to create and sort a list of ship and container call tags
 
 #### Functions
 
