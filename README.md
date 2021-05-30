@@ -6,18 +6,18 @@ The_Shipyard is a foray into object-oriented programming that explores things su
 ### MATLAB Scripts
 #### Classes
 There exist 3 different classes created for this project. The descriptions can be found in their respective .m files as well as below:
-##### Ship
+  - Ship
 
-##### Container
+  - Container
 
-##### Manifest
+  - Manifest
 
 #### Functions
 
-##### interpretManifest
+  - interpretManifest
 
-##### contMergeSort
+  - contMergeSort
 
-##### shipLoading
+  - shipLoading
 
-##### set/getGlobalVariables
+  - set/getGlobalVariables
