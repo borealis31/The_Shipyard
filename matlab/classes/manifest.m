@@ -2,7 +2,7 @@ classdef manifest
     %   This is the file that contains the declaration of the "maifest"
     %
     %   This declaration parses a file name in order to create and sort
-    %   a list for of ship and container call tags
+    %   a list of ship and container call tags
     
     properties (Access = public)
         contTagList;
