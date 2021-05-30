@@ -12,6 +12,8 @@ There exist 3 different classes created for this project. The descriptions can b
   - Ship
     - This is the file containing the properties and functions involved with the creation of a "ship". There are several properties involved with this:
       - Call Tag: This is a string of values that contains vital information about the properties of the ship, such as maximum load, container category, and capacity
+        - Ex. SXXX-Y-WW-CC-DD
+          - Where XXX = ID, Y = Category, WW = Max Weight, CC = Capacity, DD = Destination
       - ID: This is the identifier of the ship
       - Container Category: There exist various types of containers; not all ships can container all types of containers (type A can carry type A, type B can carry type A and B, so on and so forth)
       - Maximum Load: The most (in weight), each container can be
@@ -21,6 +23,8 @@ There exist 3 different classes created for this project. The descriptions can b
   - Container
     - This is the file containing the properties and functions involved with the creation of a "container". There are several properties involved with this:
       - Store Tag: Container equivalent to the ship's call-tag. Defines the properties of the container (category, weight, and destination)
+        - Ex. CXXX-Y-WW-DD
+          - Where XXX = ID, Y = Category, WW = Weight, DD = Destination
       - ID: Identifiable ID of the container involved
       - Catgeory: Type of contents/container involved
       - Weight: Weight of the container
