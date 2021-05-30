@@ -3,13 +3,12 @@ classdef container
 %     involved with the creation of a "container"
 %       
 %      There are several properties involved with this:
+%      -Store Tag: Container equivalent to the ship's call-tag. Defines the
+%       properties of the container (category, weight, and destination)
 %      -ID: Identifiable ID of the container involved
 %      -Catgeory: Type of contents/container involved
 %      -Weight: Weight of the container
 %      -Destination: Where the container is heading
-%      -Store Tag: Container equivalent to the ship's call-tag. Defines the
-%       properties of the container (category, weight, and destination)
-
     
     properties (Access = public)
         ID;

@@ -3,18 +3,17 @@ classdef ship
 %     involved with the creation of a "ship"
 %     
 %     There are several properties involved with this:
-%     -ID: This is the identifier of the ship when available (OPTIONAL)
-%     -Manufacturer: If provided, this is an additional identifier
-%      (OPTIONAL)
 %     -Call Tag: This is a string of values that contains vital information
-%      about the properties of the ship, such as maximum load, container
-%      category, and capacity (REQUIRED)
-%     -Maximum Load: The most (in weight), each container can be (REQUIRED)
+%     -ID: This is the identifier of the ship when available
 %     -Container Category: There exist various types of containers; not all
 %      ships can container all types of containers (type A can carry type
-%      A, type B cand carry type A and B, so on and so forth) (REQUIRED)
-%     -Capacity: The highest number of containers a ship can carry 
-%      (REQUIRED)
+%      A, type B cand carry type A and B, so on and so forth)
+%      about the properties of the ship, such as maximum load, container
+%      category, and capacity
+%     -Maximum Load: The most (in weight), each container can be
+%     -Capacity: The highest number of containers a ship can carry
+%     -Destination: The 2-character code that indicates where the ship is
+%     heading
 
     properties (Access = public)
         ID;
