@@ -29,9 +29,9 @@ There exist 3 different classes created for this project. The descriptions can b
       - Catgeory: Type of contents/container involved
       - Weight: Weight of the container
       - Destination: Where the container is heading
-      - On Ship: This is a char array that contains the ID of the ship is eventually loaded onto
+      - On Ship: This is a char array that contains the ID of the ship the container is eventually loaded onto
   - Manifest
-    - This is the file that contains the declaration of the "maifest". This declaration parses a file name in order to create and sort a list of ship and container call tags
+    - This is the file that contains the declaration of the "manifest". This declaration parses a file name in order to create and sort a list of ship and container call tags
 
 #### Functions
   - interpretManifest
