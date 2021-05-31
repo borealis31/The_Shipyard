@@ -13,8 +13,15 @@ end
 
 % Runs once for each ship in the ship array
 for shipIdx = 1:numShip
+    
     % Pulls information for current ship
     curShip = inputShipList(shipIdx);
+    
+    % Initialize sorted container arrays
+    sortedCompContsA = container.empty(0,1);
+    sortedCompContsB = container.empty(0,1);
+    sortedCompContsC = container.empty(0,1);
+    sortedCompContsD = container.empty(0,1);
     
     % Establish index for container in container array
     contCounter = 1;
@@ -30,8 +37,21 @@ for shipIdx = 1:numShip
     % Pull the containers from the list using the logical arrays
     compatibleContainers = inputContList(overallCompArray);
     
-    % Sort compatible arrays using the weight of each
-    sortedCompConts = contMergeSort(compatibleContainers,'weight');
+    % Sort compatible arrays by category using the weight of each
+    sortedCompContsA = contMergeSort(compatibleContainers(strcmp({compatibleContainers.category},'A')),'weight');
+    if strcmp(curShip.category,'B') || strcmp(curShip.category,'C') || strcmp(curShip.category,'D')
+       sortedCompContsB = contMergeSort(compatibleContainers(strcmp({compatibleContainers.category},'B')),'weight');
+    end
+    if strcmp(curShip.category,'C') || strcmp(curShip.category,'D')
+       sortedCompContsC = contMergeSort(compatibleContainers(strcmp({compatibleContainers.category},'C')),'weight');
+    end
+    if strcmp(curShip.category,'D')
+       sortedCompContsD = contMergeSort(compatibleContainers(strcmp({compatibleContainers.category},'D')),'weight');
+    end
+    
+    % Merge the categorically sorted arrays in order of array precedence
+    % (D>C>B>A)
+    sortedCompConts = horzcat(sortedCompContsD, sortedCompContsC, sortedCompContsB, sortedCompContsA);
     
     % Assign container to ship and record in both the ship and container
     % objects while the number of containers is below maximum capacity

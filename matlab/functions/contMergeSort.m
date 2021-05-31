@@ -63,7 +63,6 @@ else
     warndlg(['CONTAINER MERGE SORT ERROR: cMSE02' newline 'Invalid merge type'],'cMSE02');
 end
 
-
 % If there are remaining elements from input 1, put them into the new merged array
 while cLIdx1 < numC1+1
     mergedContList(cLIdxO) = inputContList1(cLIdx1);
