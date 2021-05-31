@@ -40,5 +40,6 @@ There exist 3 different classes created for this project. The descriptions can b
     - Recursive merge sort function that will sort a list of containers by weight or ID
   - shipLoading
     - This function uses the input ship and container lists to load the ships based on established properties of the objects
+    - This function also calls the contMergeSort function and enforces a container precedence for loading priority
   - set/getGlobalVariables
     - This set of functions is not actually used in the example output. It was initially designed to avoid needing to output the ship and container lists repeatedly, but it was decided against being used 
